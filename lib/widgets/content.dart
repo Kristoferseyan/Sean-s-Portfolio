@@ -278,7 +278,7 @@ class Content extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            _showImageDialog(imagePath, context); // Show the image dialog
+            _showImageDialog(imagePath, context); 
           },
           child: Container(
             width: 150,
