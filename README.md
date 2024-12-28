@@ -6,7 +6,6 @@ Welcome to my personal portfolio website! This repository contains the source co
 
 - Responsive and modern design.
 - Detailed showcase of my key projects and technologies.
-- Smooth animations and transitions for a polished user experience.
 
 ## Purpose
 
