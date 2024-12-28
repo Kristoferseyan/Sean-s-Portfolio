@@ -2,6 +2,8 @@
 
 Welcome to my personal portfolio website! This repository contains the source code for my portfolio, showcasing my projects, skills, and experiences as a Full Stack Developer and Computer Science student.
 
+**Website Link**: [Visit Sean's Portfolio](https://seyan-portfolio.web.app/)
+
 ## Features
 
 - Responsive and modern design.
@@ -14,3 +16,4 @@ This portfolio serves as a way to highlight my skills and achievements in softwa
 ## Usage
 
 Feel free to explore the repository, view the code, and provide any feedback or suggestions. If you have any questions or inquiries, feel free to reach out!
+
