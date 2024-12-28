@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:animate_do/animate_do.dart'; // Add Animate_Do for animations
+import 'package:animate_do/animate_do.dart';
 import '../styles/theme.dart';
 
 class ProjectsPage extends StatelessWidget {
@@ -11,8 +11,10 @@ class ProjectsPage extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          
           Expanded(
-            child: FadeInLeft( // Adding entrance animation
+            flex: 1, 
+            child: FadeInLeft(
               child: _buildProjectCard(
                 context,
                 title: 'eMotion: Kinesthetic Analysis System',
@@ -30,9 +32,11 @@ class ProjectsPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 32),
+          SizedBox(width: 32), 
+          
           Expanded(
-            child: FadeInRight( // Adding entrance animation
+            flex: 1, 
+            child: FadeInRight(
               child: _buildProjectCard(
                 context,
                 title: 'Tascadia',
@@ -73,7 +77,7 @@ class ProjectsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Project Images
+            
             Row(
               children: images.map((imagePath) {
                 return Expanded(
@@ -84,7 +88,7 @@ class ProjectsPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4.0),
                       child: Container(
-                        height: 200,
+                        height: 300, 
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           image: DecorationImage(
@@ -99,17 +103,17 @@ class ProjectsPage extends StatelessWidget {
               }).toList(),
             ),
             SizedBox(height: 16),
-            // Project Title
+            
             Text(
               title,
               style: TextStyle(
                 color: AppTheme.textColor,
-                fontSize: 20,
+                fontSize: 24, 
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 8),
-            // Technologies
+            
             Wrap(
               spacing: 8.0,
               children: technologies.map((tech) {
@@ -123,7 +127,7 @@ class ProjectsPage extends StatelessWidget {
                     tech['name'],
                     style: TextStyle(
                       color: tech['color'],
-                      fontSize: 14,
+                      fontSize: 16, 
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -131,18 +135,18 @@ class ProjectsPage extends StatelessWidget {
               }).toList(),
             ),
             SizedBox(height: 8),
-            // Description
+            
             Text(
               description,
               style: TextStyle(
                 color: AppTheme.textColor.withOpacity(0.8),
-                fontSize: 16,
+                fontSize: 18, 
                 height: 1.5,
               ),
               textAlign: TextAlign.justify,
             ),
             SizedBox(height: 16),
-            // GitHub Button
+            
             ElevatedButton(
               onPressed: () async {
                 if (await canLaunchUrl(Uri.parse(githubLink))) {
@@ -151,7 +155,7 @@ class ProjectsPage extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
-                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
@@ -160,7 +164,7 @@ class ProjectsPage extends StatelessWidget {
                 'View on GitHub',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16,
+                  fontSize: 18, 
                 ),
               ),
             ),

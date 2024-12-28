@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import url_launcher package
+import 'package:url_launcher/url_launcher.dart'; 
 import '../styles/theme.dart';
-import 'hover_tooltip.dart'; // Import the hover tooltip file
+import 'hover_tooltip.dart'; 
 
 class Content extends StatelessWidget {
   @override
@@ -14,28 +14,28 @@ class Content extends StatelessWidget {
 
         return Row(
           children: [
-            // Fixed Left Section
+            
             Container(
               width: isWideScreen
                   ? 700
-                  : constraints.maxWidth * 0.6, // Adjust width dynamically
-              color: AppTheme.backgroundColor, // Match left side color to right side
-              padding: EdgeInsets.fromLTRB(130.0, 40.0, 20.0, 40.0), // Flexible padding
+                  : constraints.maxWidth * 0.6, 
+              color: AppTheme.backgroundColor, 
+              padding: EdgeInsets.fromLTRB(130.0, 40.0, 20.0, 40.0), 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Profile Image
+                  
                   CircleAvatar(
-                    radius: isWideScreen ? 80 : 50, // Adjust size dynamically
-                    backgroundImage: AssetImage('assets/images/sean.jpg'), // Replace with actual image
+                    radius: isWideScreen ? 80 : 50, 
+                    backgroundImage: AssetImage('assets/images/sean.jpg'), 
                   ),
                   SizedBox(height: isWideScreen ? 24 : 16),
-                  // Name and Title
+                  
                   Text(
                     'Sean Nuevo',
                     style: TextStyle(
                       color: AppTheme.textColor,
-                      fontSize: isWideScreen ? 32 : 24, // Adjust size dynamically
+                      fontSize: isWideScreen ? 32 : 24, 
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -43,35 +43,35 @@ class Content extends StatelessWidget {
                     'Student/Full Stack Developer',
                     style: TextStyle(
                       color: AppTheme.textColor.withOpacity(0.7),
-                      fontSize: isWideScreen ? 20 : 16, // Adjust size dynamically
+                      fontSize: isWideScreen ? 20 : 16, 
                     ),
                   ),
                   SizedBox(height: isWideScreen ? 24 : 16),
-                  // Location
+                  
                   Row(
                     children: [
                       Icon(
                         Icons.location_pin,
                         color: Colors.redAccent,
-                        size: isWideScreen ? 24 : 18, // Adjust size dynamically
+                        size: isWideScreen ? 24 : 18, 
                       ),
                       SizedBox(width: 8),
                       Text(
                         'South Cotabato, Philippines',
                         style: TextStyle(
                           color: AppTheme.textColor.withOpacity(0.8),
-                          fontSize: isWideScreen ? 18 : 14, // Adjust size dynamically
+                          fontSize: isWideScreen ? 18 : 14, 
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: isWideScreen ? 24 : 16),
-                  // Description
+                  
                   Text(
                     'Building innovative solutions for real-world challenges. Passionate about crafting seamless digital experiences.',
                     style: TextStyle(
                       color: AppTheme.textColor.withOpacity(0.8),
-                      fontSize: isWideScreen ? 18 : 14, // Adjust size dynamically
+                      fontSize: isWideScreen ? 18 : 14, 
                     ),
                   ),
                   SizedBox(height: isWideScreen ? 24 : 16),
@@ -94,11 +94,11 @@ class Content extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                             horizontal: isWideScreen ? 30 : 20,
                             vertical: isWideScreen ? 15 : 10,
-                          ), // Adjust padding dynamically
+                          ), 
                         ),
                         child: Text(
                           'Resume',
-                          style: TextStyle(fontSize: isWideScreen ? 18 : 14, color: Colors.white), // Adjust font size dynamically
+                          style: TextStyle(fontSize: isWideScreen ? 18 : 14, color: Colors.white), 
                         ),
                       ),
                       SizedBox(width: 16),
@@ -139,16 +139,16 @@ class Content extends StatelessWidget {
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(40.0, 40.0, 130.0, 40.0), // Adjusted padding for flexibility
+                  padding: EdgeInsets.fromLTRB(40.0, 40.0, 130.0, 40.0), 
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // About Me Section
+                      
                       Text(
                         'About Me',
                         style: TextStyle(
                           color: AppTheme.textColor,
-                          fontSize: isWideScreen ? 32 : 24, // Adjust size dynamically
+                          fontSize: isWideScreen ? 32 : 24, 
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -159,18 +159,18 @@ class Content extends StatelessWidget {
                         'I thrive in collaborative environments where I can apply innovative thinking to drive meaningful results.',
                         style: TextStyle(
                           color: AppTheme.textColor.withOpacity(0.8),
-                          fontSize: isWideScreen ? 18 : 14, // Adjust size dynamically
+                          fontSize: isWideScreen ? 18 : 14, 
                           height: 1.5,
                         ),
                         textAlign: TextAlign.justify,
                       ),
                       SizedBox(height: isWideScreen ? 32 : 24),
-                      // Skills Section
+                      
                       Text(
                         'Skills',
                         style: TextStyle(
                           color: AppTheme.textColor,
-                          fontSize: isWideScreen ? 32 : 24, // Adjust size dynamically
+                          fontSize: isWideScreen ? 32 : 24, 
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -187,12 +187,12 @@ class Content extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: isWideScreen ? 32 : 24),
-                      // Education Section
+                      
                       Text(
                         'Education',
                         style: TextStyle(
                           color: AppTheme.textColor,
-                          fontSize: isWideScreen ? 32 : 24, // Adjust size dynamically
+                          fontSize: isWideScreen ? 32 : 24, 
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -207,12 +207,12 @@ class Content extends StatelessWidget {
                         'Tupi National High School',
                       ),
                       SizedBox(height: isWideScreen ? 32 : 24),
-                      // Experience Section
+                      
                       Text(
                         'Experience',
                         style: TextStyle(
                           color: AppTheme.textColor,
-                          fontSize: isWideScreen ? 32 : 24, // Adjust size dynamically
+                          fontSize: isWideScreen ? 32 : 24, 
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -224,16 +224,16 @@ class Content extends StatelessWidget {
                             'Startup 101 Workshop',
                             'November 2022',
                             'Collaborated with like-minded students to pitch startup solutions emphasizing design thinking and innovation.',
-                            'assets/images/startup.jpg', // Placeholder image
-                            context, // Context for the dialog
+                            'assets/images/startup.jpg', 
+                            context, 
                           ),
                           SizedBox(height: 16),
                           _buildExperienceItem(
                             'Unboxing Hackathon: SAR-GEN Startup Challenge',
                             'January 2023',
                             'Developed impactful solutions during a competition to assist General Santos City with real-world challenges.',
-                            'assets/images/icebox.jpg', // Placeholder image
-                            context, // Context for the dialog
+                            'assets/images/icebox.jpg', 
+                            context, 
                           ),
                         ],
                       ),
