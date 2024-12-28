@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/contact.dart';
 import 'widgets/navigation.dart';
 import 'widgets/content.dart';
-import 'widgets/footer.dart';
 import 'styles/theme.dart';
 import 'widgets/projects.dart';
 void main() {
@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/', 
       routes: {
         '/': (context) => WebsiteLayout(child: Content()), 
-        '/projects': (context) => WebsiteLayout(child: ProjectsPage()), 
+        '/projects': (context) => WebsiteLayout(child: ProjectsPage()),
+        '/contact': (context) => WebsiteLayout(child: ContactPage(),), 
       },
       debugShowCheckedModeBanner: false,
     );
@@ -39,7 +40,6 @@ class WebsiteLayout extends StatelessWidget {
         children: [
           Navigation(),
           Expanded(child: child), 
-          Footer(),
         ],
       ),
     );

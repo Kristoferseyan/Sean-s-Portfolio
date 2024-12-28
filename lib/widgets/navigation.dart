@@ -4,7 +4,6 @@ import '../styles/theme.dart';
 class Navigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     String currentRoute = ModalRoute.of(context)?.settings.name ?? '/';
 
     return Container(
@@ -36,6 +35,12 @@ class Navigation extends StatelessWidget {
               'Projects',
               '/projects', 
               isActive: currentRoute == '/projects', 
+            ),
+            _buildNavButton(
+              context,
+              'Contact',
+              '/contact', // Route for the contact page
+              isActive: currentRoute == '/contact',
             ),
           ],
         ),
