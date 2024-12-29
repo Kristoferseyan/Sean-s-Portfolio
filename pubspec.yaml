@@ -32,3 +32,5 @@ flutter:
     - assets/images/analytics.jpg
     - assets/images/tascadia-dash.jpg
     - assets/images/tascadia-login.jpg
+    - assets/images/logo.png
+    - assets/images/favicon-32x32.png
