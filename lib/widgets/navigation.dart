@@ -39,7 +39,7 @@ class Navigation extends StatelessWidget {
             _buildNavButton(
               context,
               'Contact',
-              '/contact', // Route for the contact page
+              '/contact', 
               isActive: currentRoute == '/contact',
             ),
           ],
