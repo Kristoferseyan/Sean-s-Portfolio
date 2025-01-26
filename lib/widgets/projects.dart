@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:animate_do/animate_do.dart';
@@ -32,6 +34,7 @@ class ProjectsPage extends StatelessWidget {
               ),
             ),
           ),
+          
           SizedBox(width: 32), 
           
           Expanded(

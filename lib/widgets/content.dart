@@ -80,7 +80,7 @@ class Content extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () async {
-                          final url = Uri.parse('https://resume92.tiiny.site');
+                          final url = Uri.parse('https://nuevo-resume.tiiny.site');
                           if (await canLaunchUrl(url)) {
                             await launchUrl(url, mode: LaunchMode.externalApplication);
                           } else {
@@ -230,7 +230,7 @@ class Content extends StatelessWidget {
                           SizedBox(height: 16),
                           _buildExperienceItem(
                             'Unboxing Hackathon: SAR-GEN Startup Challenge',
-                            'January 2023',
+                            'May 2024',
                             'Developed impactful solutions during a competition to assist General Santos City with real-world challenges.',
                             'assets/images/icebox.jpg', 
                             context, 
