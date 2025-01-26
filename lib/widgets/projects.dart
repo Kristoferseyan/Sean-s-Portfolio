@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:animate_do/animate_do.dart';
@@ -16,44 +14,74 @@ class ProjectsPage extends StatelessWidget {
           
           Expanded(
             flex: 1, 
-            child: FadeInLeft(
-              child: _buildProjectCard(
-                context,
-                title: 'eMotion: Kinesthetic Analysis System',
-                technologies: [
-                  {'name': 'Flutter/Dart', 'color': Colors.blue},
-                  {'name': 'Supabase', 'color': Colors.orange},
-                ],
-                description:
-                    'eMotion is our thesis project that we just recently finished. This is a mobile application designed to detect and analyze emotions through body movements. Unlike traditional emotion detection tools that rely on facial expressions, eMotion focuses exclusively on body language, offering a unique approach to emotional intelligence technology. This privacy-conscious app aims to provide insights into emotional states while protecting user privacy by avoiding facial recognition.',
-                images: [
-                  'assets/images/tracking.jpg',
-                  'assets/images/analytics.jpg',
-                ],
-                githubLink: 'https://github.com/Kristoferseyan/eMotion.git',
+            child: SizedBox(
+              height: 600,
+              child: FadeInLeft(
+                child: _buildProjectCard(
+                  context,
+                  title: 'eMotion: Kinesthetic Analysis System',
+                  technologies: [
+                    {'name': 'Flutter/Dart', 'color': Colors.blue},
+                    {'name': 'Supabase', 'color': Colors.orange},
+                  ],
+                  description:
+                      'Mobile application designed to detect and analyze emotions through body movements.',
+                  images: [
+                    'assets/images/tracking.jpg',
+                    'assets/images/analytics.jpg',
+                  ],
+                  githubLink: 'https://github.com/Kristoferseyan/eMotion.git',
+                ),
               ),
             ),
           ),
-          
           SizedBox(width: 32), 
           
           Expanded(
             flex: 1, 
-            child: FadeInRight(
-              child: _buildProjectCard(
-                context,
-                title: 'Tascadia',
-                technologies: [
-                  {'name': 'Flutter/Dart', 'color': Colors.blue},
-                  {'name': 'Supabase', 'color': Colors.orange},
-                ],
-                description:
-                    'TasCadia is our ongoing project in our subject in Technopreneurship. TasCadia is a mobile app that connects busy people who need help with tasks like errands, cleaning, or deliveries to individuals looking for flexible side jobs. Task posters can quickly post tasks and set their own rates, while task doers can browse and choose jobs that fit their skills and schedules. Focused on community-driven outsourcing in General Santos City, TasCadia offers flexible pricing, secure payments, and real-time updates, making it a convenient and trustworthy way to get things done while creating income opportunities for others.',
-                images: [
-                  'assets/images/tascadia-dash.jpg',
-                  'assets/images/tascadia-login.jpg',
-                ],
-                githubLink: 'https://github.com/Kristoferseyan/Tascadia.git',
+            child: SizedBox(
+              height: 600,
+              child: FadeInRight(
+                child: _buildProjectCard(
+                  context,
+                  title: 'Tascadia',
+                  technologies: [
+                    {'name': 'Flutter/Dart', 'color': Colors.blue},
+                    {'name': 'Supabase', 'color': Colors.orange},
+                  ],
+                  description:
+                      'TasCadia is a mobile app that connects busy people who need help with tasks like errands, cleaning, or deliveries to individuals looking for flexible side jobs.',
+                  images: [
+                    'assets/images/tascadia-dash.jpg',
+                    'assets/images/tascadia-login.jpg',
+                  ],
+                  githubLink: 'https://github.com/Kristoferseyan/Tascadia.git',
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 32), 
+          
+          Expanded(
+            flex: 1, 
+            child: SizedBox(
+              height: 600,
+              child: FadeInRight(
+                child: _buildProjectCard(
+                  context,
+                  title: 'Oro Computer Center Management System',
+                  technologies: [
+                    {'name': 'Flutter/Dart', 'color': Colors.blue},
+                    {'name': 'Supabase', 'color': Colors.orange},
+                  ],
+                  description:
+                      'Desktop application that will serve as a management system for Oro Computer Center.',
+                  images: [
+                    'assets/images/oro_home.png',
+                    'assets/images/oro_items.png',
+                  ],
+                  githubLink: 'https://github.com/Kristoferseyan/oro-computer-system',
+                ),
               ),
             ),
           ),
