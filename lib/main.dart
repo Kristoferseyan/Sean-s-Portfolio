@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/contact.dart';
+import 'package:portfolio/pages/contact.dart';
 import 'widgets/navigation.dart';
-import 'widgets/content.dart';
+import 'pages/content.dart';
 import 'styles/theme.dart';
-import 'widgets/projects.dart';
+import 'pages/projects.dart';
 void main() {
   runApp(MyApp());
 }
