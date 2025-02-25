@@ -8,7 +8,7 @@ class SkillTooltip extends StatelessWidget {
   final IconData icon;
   final Color color;
 
-  SkillTooltip({
+  const SkillTooltip({super.key, 
     required this.skill,
     required this.description,
     required this.icon,
@@ -19,7 +19,7 @@ class SkillTooltip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tooltip(
       message: description,
-      padding: EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         color: color, 
         borderRadius: BorderRadius.circular(8),
@@ -27,11 +27,11 @@ class SkillTooltip extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
             blurRadius: 8,
-            offset: Offset(0, 4),
+            offset: const Offset(0, 4),
           ),
         ],
       ),
-      textStyle: TextStyle(
+      textStyle: const TextStyle(
         color: Colors.white, 
         fontSize: 14,
         fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class SkillTooltip extends StatelessWidget {
         ),
         label: Text(
           skill,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),

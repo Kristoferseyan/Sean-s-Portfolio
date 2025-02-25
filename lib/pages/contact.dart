@@ -3,8 +3,11 @@ import 'package:animate_do/animate_do.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
+  const ContactPage({super.key});
+
   @override
   Widget build(BuildContext context) {
+
     double screenWidth = MediaQuery.of(context).size.width;
     bool isSmallScreen = screenWidth <= 600;
     bool isMediumScreen = screenWidth > 600 && screenWidth <= 1000;
@@ -36,7 +39,7 @@ class ContactPage extends StatelessWidget {
                     },
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 FadeInUp(
                   child: _buildContactCard(
                     icon: Icons.phone,
@@ -53,7 +56,7 @@ class ContactPage extends StatelessWidget {
                     },
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 FadeInRight(
                   child: _buildContactCard(
                     icon: Icons.facebook,
@@ -148,7 +151,7 @@ class ContactPage extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               Icon(
@@ -156,15 +159,15 @@ class ContactPage extends StatelessWidget {
                 size: 40,
                 color: Colors.blue,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 value,
                 style: TextStyle(

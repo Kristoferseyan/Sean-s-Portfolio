@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "seyan-portfolio"
-  }
+    "default": "seanportfolio-57516",
+    "portfolio": "seanportfolio-57516"
+  },
+  "targets": {},
+  "etags": {}
 }

@@ -5,10 +5,12 @@ import 'pages/content.dart';
 import 'styles/theme.dart';
 import 'pages/projects.dart';
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,9 +19,9 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       initialRoute: '/', 
       routes: {
-        '/': (context) => WebsiteLayout(child: Content()), 
-        '/projects': (context) => WebsiteLayout(child: ProjectsPage()),
-        '/contact': (context) => WebsiteLayout(child: ContactPage(),), 
+        '/': (context) => const WebsiteLayout(child: Content()), 
+        '/projects': (context) => const WebsiteLayout(child: ProjectsPage()),
+        '/contact': (context) => const WebsiteLayout(child: ContactPage(),), 
       },
       debugShowCheckedModeBanner: false,
     );
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
 class WebsiteLayout extends StatelessWidget {
   final Widget child;
 
-  WebsiteLayout({required this.child});
+  const WebsiteLayout({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class WebsiteLayout extends StatelessWidget {
       backgroundColor: AppTheme.backgroundColor,
       body: Column(
         children: [
-          Navigation(),
+          const Navigation(),
           Expanded(child: child), 
         ],
       ),

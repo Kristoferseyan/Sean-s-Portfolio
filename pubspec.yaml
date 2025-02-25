@@ -23,7 +23,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/sean.jpg
+    - assets/pfp.png
     - assets/images/fb.png
     - assets/images/github.png
     - assets/images/startup.jpg

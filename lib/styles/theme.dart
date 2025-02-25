@@ -7,7 +7,7 @@ class AppTheme {
   static const buttonColor = Color(0xFF417492);
   static const backgroundColor = Color.fromARGB(255, 19, 26, 44);
 
-  static final headerGradient = LinearGradient(
+  static const headerGradient = LinearGradient(
     colors: [
       Color(0xFF1C1F28),
       Color(0xFF2E3444),
@@ -32,7 +32,7 @@ class AppTheme {
     ),
   );
 
-  static TextStyle get navTextStyle => TextStyle(
+  static TextStyle get navTextStyle => const TextStyle(
         color: textColor,
         fontSize: 16,
         fontWeight: FontWeight.bold,

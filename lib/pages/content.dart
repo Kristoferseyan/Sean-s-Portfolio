@@ -6,6 +6,8 @@ import '../styles/theme.dart';
 import '../widgets/hover_tooltip.dart'; 
 
 class Content extends StatelessWidget {
+  const Content({super.key});
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -14,38 +16,25 @@ class Content extends StatelessWidget {
         bool isMediumScreen = constraints.maxWidth > 600 && constraints.maxWidth <= 1000;
         bool isSmallScreen = constraints.maxWidth <= 600;
 
-        return SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: isSmallScreen ? 16.0 : 32.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (!isSmallScreen)
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: _buildLeftSection(context, isWideScreen, isMediumScreen, isSmallScreen),
-                      ),
-                      SizedBox(width: 32),
-                      Expanded(
-                        flex: 3,
-                        child: _buildRightSection(context, isWideScreen, isMediumScreen, isSmallScreen),
-                      ),
-                    ],
+        return Padding(
+          padding: isSmallScreen ? const EdgeInsets.only(left: 0) : const EdgeInsets.only(left: 70),
+          child: Row(
+            children: [
+              SizedBox(
+                width: isWideScreen ? 400 : (isMediumScreen ? 250 : 200),
+                child: _buildLeftSection(context, isWideScreen, isMediumScreen, isSmallScreen),
+              ),
+          
+              Expanded(
+                flex: 1,
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: isSmallScreen ? 16.0 : 32.0),
+                    child: _buildRightSection(context, isWideScreen, isMediumScreen, isSmallScreen),
                   ),
-                if (isSmallScreen)
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildLeftSection(context, isWideScreen, isMediumScreen, isSmallScreen),
-                      SizedBox(height: 32),
-                      _buildRightSection(context, isWideScreen, isMediumScreen, isSmallScreen),
-                    ],
-                  ),
-              ],
-            ),
+                ),
+              ),
+            ],
           ),
         );
       },
@@ -61,7 +50,7 @@ class Content extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: isWideScreen ? 80 : (isMediumScreen ? 60 : 50),
-            backgroundImage: AssetImage('assets/images/sean.jpg'),
+            backgroundImage: AssetImage('assets/pfp.png'),
           ),
           SizedBox(height: isWideScreen ? 24 : 16),
           Text(
@@ -199,12 +188,12 @@ class Content extends StatelessWidget {
               fontSize: isWideScreen ? 32 : (isMediumScreen ? 28 : 24),
               fontWeight: FontWeight.bold,
             ),
-          ),
+          ),  
           SizedBox(height: isWideScreen ? 24 : 16),
           Wrap(
             spacing: 16.0,
             runSpacing: 12.0,
-            children: [
+            children: const [
               SkillTooltip(skill: 'Flutter/Dart', description: 'I have extensive experience using Flutter and Dart, which I relied on \nheavily to develop two mobile application projects. These tools have \nbeen essential in building robust and feature-rich cross-platform apps.', icon: Icons.code, color: Colors.blue),
               SkillTooltip(skill: 'PostgreSQL/Supabase', description: 'As the primary database solution in my projects, I have hands-on experience with Supabase, \nleveraging it for seamless backend integration and database management.', icon: Icons.storage, color: Colors.orange),
               SkillTooltip(skill: 'Java', description: 'I have foundational knowledge of Java, gained through various school activities and projects, \nfocusing on object-oriented programming and problem-solving.', icon: Icons.computer, color: Colors.redAccent),
