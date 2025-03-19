@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sean\'s Portfolio',
-      theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       initialRoute: '/', 
       routes: {
@@ -37,7 +36,7 @@ class WebsiteLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.backgroundColorDark,
       body: Column(
         children: [
           const Navigation(),

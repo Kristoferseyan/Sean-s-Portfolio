@@ -113,7 +113,7 @@ class ProjectsPage extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: AppTheme.textColor,
+                  color: AppTheme.textColorDark,
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
@@ -135,7 +135,7 @@ class ProjectsPage extends StatelessWidget {
               Text(
                 description,
                 style: TextStyle(
-                  color: AppTheme.textColor.withOpacity(0.8),
+                  color: AppTheme.textColorDark.withOpacity(0.8),
                   fontSize: 16,
                   height: 1.5,
                 ),
