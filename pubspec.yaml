@@ -43,4 +43,18 @@ flutter:
     - assets/icons/python.png
     - assets/icons/java.png
     - assets/icons/supabase.png
+    - assets/icons/css.png
+    - assets/icons/html.png
+    - assets/icons/csharp.png
+    - assets/icons/azure.png
+    - assets/icons/asp.png
+    - assets/icons/git.png
+    - assets/icons/postgre.png
+    - assets/icons/dart.png
+    - assets/icons/vscode.png
+    - assets/icons/sql.png
+    - assets/icons/docker.png
+
+    
+
 

@@ -160,7 +160,26 @@ class Content extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: isWideScreen ? 24 : 16),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildSocialButton(
+                  'assets/images/fb.png',
+                  'https://www.facebook.com/sean.nuevo.52',
+                  isWideScreen,
+                  isMediumScreen,
+                ),
+                SizedBox(width: 16),
+                _buildSocialButton(
+                  'assets/images/github.png',
+                  'https://github.com/Kristoferseyan',
+                  isWideScreen,
+                  isMediumScreen,
+                ),
+              ],
+            ),
+            SizedBox(height: 16,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -199,25 +218,6 @@ class Content extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildSocialButton(
-                  'assets/images/fb.png',
-                  'https://www.facebook.com/sean.nuevo.52',
-                  isWideScreen,
-                  isMediumScreen,
-                ),
-                SizedBox(width: 16),
-                _buildSocialButton(
-                  'assets/images/github.png',
-                  'https://github.com/Kristoferseyan',
-                  isWideScreen,
-                  isMediumScreen,
                 ),
               ],
             ),
@@ -286,42 +286,7 @@ class Content extends StatelessWidget {
           SizedBox(height: isWideScreen ? 48 : 36),
           _buildSectionHeader('Skills', isWideScreen, isMediumScreen),
           SizedBox(height: isWideScreen ? 24 : 16),
-          Wrap(
-            spacing: 16.0,
-            runSpacing: 16.0,
-            children: [
-              SkillTooltip(
-                  skill: 'Flutter/Dart',
-                  description:
-                      'I have extensive experience using Flutter and Dart, which I relied on \nheavily to develop two mobile application projects. These tools have \nbeen essential in building robust and feature-rich cross-platform apps.',
-                  image: Image.asset('assets/icons/flutter.png'),
-                  color: const Color.fromARGB(0, 49, 92, 194)),
-              SkillTooltip(
-                  skill: 'PostgreSQL/Supabase',
-                  description:
-                      'As the primary database solution in my projects, I have hands-on experience with Supabase, \nleveraging it for seamless backend integration and database management.',
-                  image: Image.asset('assets/icons/Supabase.png'),
-                  color: const Color.fromARGB(0, 36, 104, 63)),
-              SkillTooltip(
-                  skill: 'Java',
-                  description:
-                      'I have foundational knowledge of Java, gained through various school activities and projects, \nfocusing on object-oriented programming and problem-solving.',
-                  image: Image.asset('assets/icons/java.png'),
-                  color: const Color.fromARGB(0, 255, 82, 82)),
-              SkillTooltip(
-                  skill: 'Python',
-                  description:
-                      'My experience with Python comes primarily from academic tasks, \nwhere I utilized it for scripting, data analysis, and completing assignments effectively.',
-                  image: Image.asset('assets/icons/python.png'),
-                  color: const Color.fromARGB(0, 167, 175, 76)),
-              SkillTooltip(
-                  skill: 'Figma',
-                  description:
-                      'I have strong expertise in Figma, which I used extensively to design intuitive and \npolished layouts for my mobile applications. Creating user-centered designs \nbefore development is a process I particularly enjoy and excel at.',
-                  image: Image.asset('assets/icons/figma.png'),
-                  color: const Color.fromARGB(0, 155, 39, 176)),
-            ],
-          ),
+          _buildSkillsSection(isWideScreen, isMediumScreen, isSmallScreen),
           SizedBox(height: isWideScreen ? 48 : 36),
           _buildSectionHeader('Education', isWideScreen, isMediumScreen),
           SizedBox(height: isWideScreen ? 24 : 16),
@@ -616,6 +581,193 @@ class Content extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildSkillsSection(bool isWideScreen, bool isMediumScreen, bool isSmallScreen) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(bottom: 16, left: 4),
+          child: Text(
+            'Programming Languages',
+            style: AppTheme.headingSmallDark.copyWith(
+              fontSize: 18,
+              color: AppTheme.textColorDark.withOpacity(0.9),
+            ),
+          ),
+        ),
+        Wrap(
+          spacing: 16.0,
+          runSpacing: 16.0,
+          children: [
+            SkillTooltip(
+              skill: 'Java',
+              description: 'I have foundational knowledge of Java, gained through various school activities and projects,\n'
+                  'focusing on object-oriented programming and problem-solving.',
+              image: Image.asset('assets/icons/java.png'),
+              color: Colors.red.withOpacity(1),  // Fixed opacity issue
+            ),
+            SkillTooltip(
+              skill: 'Python',
+              description: 'My experience with Python comes primarily from academic tasks, '
+                  '\nwhere I utilized it for scripting, data analysis, and completing assignments effectively.',
+              image: Image.asset('assets/icons/python.png'),
+              color: Colors.green.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'Dart',
+              description: 'I used Dart alongside Flutter for developing the projects that I currenlty have.',
+              image: Image.asset('assets/icons/dart.png'),
+              color: Colors.blue.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'C#',
+              description: 'I gained hands-on experience with C# during my on-the-job training, where I was \nresponsible for developing RESTful web APIs and implementing backend services.',
+              image: Image.asset('assets/icons/csharp.png'),
+              color: Colors.purple.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'SQL',
+              description: 'I\'ve used SQL extensively for database operations, creating complex \nqueries, and managing relational data models for my projects.',
+              image: Image.asset('assets/icons/sql.png'),
+              color: Colors.orange.shade800.withOpacity(1),
+            ),
+          ],
+        ),
+  
+        SizedBox(height: 32),
+        Padding(
+          padding: EdgeInsets.only(bottom: 16, left: 4),
+          child: Text(
+            'Frameworks & Technologies',
+            style: AppTheme.headingSmallDark.copyWith(
+              fontSize: 18,
+              color: AppTheme.textColorDark.withOpacity(0.9),
+            ),
+          ),
+        ),
+        Wrap(
+          spacing: 16.0,
+          runSpacing: 16.0,
+          children: [
+            SkillTooltip(
+              skill: 'Flutter',
+              description: 'I have extensive experience using Flutter which I relied on '
+                  'heavily to develop my projects,',
+              image: Image.asset('assets/icons/flutter.png'),
+              color: Colors.blue.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'ASP.NET',
+              description: 'I worked with ASP.NET during my on-the-job training, '
+                  '\ndeveloping RESTful web APIs and implementing backend services.',
+              image: Image.asset('assets/icons/asp.png'),
+              color: Colors.blue.shade700.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'PostgreSQL',
+              description: 'Experienced in designing and optimizing PostgreSQL \ndatabases, '
+                  'with a focus on performance and data integrity.',
+              image: Image.asset('assets/icons/postgre.png'),
+              color: Colors.blue.shade800.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'Supabase',
+              description: 'As the primary database solution in my projects, I have hands-on experience with \nSupabase, '
+                  'leveraging it for seamless backend integration and database management.',
+              image: Image.asset('assets/icons/Supabase.png'),
+              color: Colors.green.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'Docker',
+              description: 'I used Docker to containerize and run SQL databases on my Mac, \ncreating consistent development environments for my projects.',
+              image: Image.asset('assets/icons/docker.png'),
+              color: Colors.blue.shade600.withOpacity(1),
+            ),
+          ],
+        ),
+  
+        SizedBox(height: 32),
+        Padding(
+          padding: EdgeInsets.only(bottom: 16, left: 4),
+          child: Text(
+            'Web Technologies',
+            style: AppTheme.headingSmallDark.copyWith(
+              fontSize: 18,
+              color: AppTheme.textColorDark.withOpacity(0.9),
+            ),
+          ),
+        ),
+        Wrap(
+          spacing: 16.0,
+          runSpacing: 16.0,
+          children: [
+            SkillTooltip(
+              skill: 'HTML',
+              description: 'I have foundational skills on HTML through The Odin Project course, '
+                  '\nwhere I learned to create semantic and accessible web pages.',
+              image: Image.asset('assets/icons/html.png'),
+              color: Colors.orange.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'CSS',
+                description: 'I developed my foundational skills in CSS through The Odin Project course,\nlearning how to style web pages with responsive layouts and modern design principles.',
+              image: Image.asset('assets/icons/css.png'),
+              color: Colors.blue.withOpacity(1),
+            ),
+          ],
+        ),
+  
+        SizedBox(height: 32),
+  
+        Padding(
+          padding: EdgeInsets.only(bottom: 16, left: 4),
+          child: Text(
+            'Design & Development Tools',
+            style: AppTheme.headingSmallDark.copyWith(
+              fontSize: 18,
+              color: AppTheme.textColorDark.withOpacity(0.9),
+            ),
+          ),
+        ),
+        Wrap(
+          spacing: 16.0,
+          runSpacing: 16.0,
+          children: [
+            SkillTooltip(
+              skill: 'Figma',
+              description: 'I have strong expertise in Figma, which I used extensively to design intuitive and '
+                  '\npolished layouts for my mobile applications. Creating user-centered designs '
+                  '\nbefore development is a process I particularly enjoy and excel at.',
+              image: Image.asset('assets/icons/figma.png'),
+              color: Colors.purple.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'Azure Data Studio',
+                description: 'I utilized Azure Data Studio as my primary database tool while learning and developing web APIs. '
+                  '\nIt was essential for database administration, query testing, and managing SQL Server \nconnections throughout my API development process.',
+              image: Image.asset('assets/icons/azure.png'),
+              color: Colors.blue.shade700.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'Git',
+              description: 'Experienced with Git for version control, including branching strategies, '
+                  '\npull requests, and collaborative development workflows.',
+              image: Image.asset('assets/icons/git.png'),
+              color: Colors.orange.shade700.withOpacity(1),
+            ),
+            SkillTooltip(
+              skill: 'VS Code',
+              description: 'Proficient with Visual Studio Code as my primary development environment, '
+                  '\nutilizing extensions and customizations for improved productivity.',
+              image: Image.asset('assets/icons/vscode.png'),
+              color: Colors.blue.shade500.withOpacity(1),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
