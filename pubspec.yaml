@@ -37,3 +37,10 @@ flutter:
     - assets/images/favicon-32x32.png
     - assets/images/oro_home.png
     - assets/images/oro_items.png
+
+    - assets/icons/figma.png
+    - assets/icons/flutter.png
+    - assets/icons/python.png
+    - assets/icons/java.png
+    - assets/icons/supabase.png
+

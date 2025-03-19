@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; 
+import 'package:url_launcher/url_launcher.dart';
 import '../styles/theme.dart';
-import '../widgets/hover_tooltip.dart'; 
+import '../widgets/hover_tooltip.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Content extends StatelessWidget {
@@ -14,41 +14,68 @@ class Content extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         bool isWideScreen = constraints.maxWidth > 1000;
-        bool isMediumScreen = constraints.maxWidth > 600 && constraints.maxWidth <= 1000;
+        bool isMediumScreen =
+            constraints.maxWidth > 600 && constraints.maxWidth <= 1000;
         bool isSmallScreen = constraints.maxWidth <= 600;
 
         return Scaffold(
           backgroundColor: AppTheme.backgroundColorDark,
-          body: Row(
-            children: [
-              Container(
-                width: isWideScreen ? 400 : (isMediumScreen ? 300 : 200),
-                height: double.infinity,
-                child: _buildLeftSection(context, isWideScreen, isMediumScreen, isSmallScreen),
-              ),
-              
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: AppTheme.subtleGradient,
-                  ),
-                  child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
-                    child: _buildRightSection(context, isWideScreen, isMediumScreen, isSmallScreen),
-                  ),
+          body: isWideScreen
+              ? Row(
+                  children: [
+                    SizedBox(
+                      width: isWideScreen ? 400 : (isMediumScreen ? 300 : 200),
+                      height: double.infinity,
+                      child: _buildLeftSection(
+                          context, isWideScreen, isMediumScreen, isSmallScreen),
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: AppTheme.subtleGradient,
+                        ),
+                        child: SingleChildScrollView(
+                          padding: EdgeInsets.zero,
+                          physics: BouncingScrollPhysics(),
+                          child: _buildRightSection(context, isWideScreen,
+                              isMediumScreen, isSmallScreen),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              : Column(
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      height: 530,
+                      child: _buildLeftSection(
+                          context, isWideScreen, isMediumScreen, isSmallScreen),
+                    ),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: AppTheme.subtleGradient,
+                        ),
+                        child: SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child: _buildRightSection(context, isWideScreen,
+                              isMediumScreen, isSmallScreen),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
         );
       },
     );
   }
 
-  Widget _buildLeftSection(BuildContext context, bool isWideScreen, bool isMediumScreen, bool isSmallScreen) {
+  Widget _buildLeftSection(BuildContext context, bool isWideScreen,
+      bool isMediumScreen, bool isSmallScreen) {
     return Container(
-      
-      padding: EdgeInsets.fromLTRB(isSmallScreen ? 20.0 : 40.0, 60.0, 20.0, 40.0),
+      padding:
+          EdgeInsets.fromLTRB(isSmallScreen ? 20.0 : 40.0, 60.0, 20.0, 40.0),
       decoration: BoxDecoration(
         color: AppTheme.backgroundColorDark,
         boxShadow: [
@@ -59,138 +86,149 @@ class Content extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Center(
-            child: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                boxShadow: AppTheme.cardShadow,
-              ),
-              child: CircleAvatar(
-                radius: isWideScreen ? 85 : (isMediumScreen ? 65 : 50),
-                backgroundColor: Colors.white,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: AppTheme.cardShadow,
+                ),
                 child: CircleAvatar(
-                  radius: isWideScreen ? 80 : (isMediumScreen ? 60 : 45),
-                  backgroundImage: AssetImage('assets/pfp.png'),
+                  radius: isWideScreen ? 85 : (isSmallScreen ? 90 : 90),
+                  backgroundColor: Colors.white,
+                  child: CircleAvatar(
+                    radius: isWideScreen ? 80 : (isSmallScreen ? 85 : 85),
+                    backgroundImage: AssetImage('assets/pfp.png'),
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: isWideScreen ? 32 : 24),
-          Center(
-            child: Text(
-              'Sean Nuevo',
-              style: isWideScreen
-                  ? AppTheme.headingLargeDark.copyWith(color: Colors.white)
-                  : AppTheme.headingMediumDark.copyWith(color: Colors.white),
-            ),
-          ),
-          SizedBox(height: 4),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: Colors.white.withOpacity(0.3),
-                width: 1,
-              ),
-            ),
-            child: Center(
+            SizedBox(height: isWideScreen ? 32 : 24),
+            Center(
               child: Text(
-                'Full Stack Developer',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: isWideScreen ? 16 : (isMediumScreen ? 14 : 12),
-                  fontWeight: FontWeight.w500,
+                'Sean Nuevo',
+                style: isWideScreen
+                    ? AppTheme.headingLargeDark.copyWith(color: Colors.white)
+                    : AppTheme.headingMediumDark.copyWith(color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 4),
+            Center(
+              child: Container(
+                constraints: BoxConstraints(
+                  maxWidth: isWideScreen ? 200 : (isMediumScreen ? 180 : 160),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: Colors.white.withOpacity(0.3),
+                    width: 1,
+                  ),
+                ),
+                child: Text(
+                  'Full Stack Developer',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: isWideScreen ? 16 : (isMediumScreen ? 14 : 12),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(height: isWideScreen ? 24 : 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.location_pin,
-                color: Colors.white.withOpacity(0.8),
-                size: isWideScreen ? 22 : (isMediumScreen ? 18 : 16),
-              ),
-              SizedBox(width: 8),
-              Text(
-                'South Cotabato, Philippines',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: isWideScreen ? 16 : (isMediumScreen ? 14 : 12),
+            SizedBox(height: isWideScreen ? 24 : 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.location_pin,
+                  color: Colors.white.withOpacity(0.8),
+                  size: isWideScreen ? 22 : (isMediumScreen ? 18 : 16),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: isWideScreen ? 24 : 16),
-          Row(
-            children: [
-              Expanded(
-                child: ElevatedButton.icon(
-                  onPressed: () async {
-                    final url = Uri.parse('https://nuevo-resume.tiiny.site');
-                    if (await canLaunchUrl(url)) {
-                      await launchUrl(url, mode: LaunchMode.externalApplication);
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Could not download the resume.')),
-                      );
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.cardColorDark,
-                    foregroundColor: AppTheme.primaryColorDark,
-                    elevation: 0,
-                    padding: EdgeInsets.symmetric(
-                      vertical: isWideScreen ? 16 : 14,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  icon: Icon(Icons.file_download_outlined, size: 18),
-                  label: Text(
-                    'Download Resume',
-                    style: AppTheme.buttonText.copyWith(
-                      color: AppTheme.primaryColorDark,
-                      fontSize: isWideScreen ? 16 : 14,
-                    ),
+                SizedBox(width: 8),
+                Text(
+                  'South Cotabato, Philippines',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: isWideScreen ? 16 : (isMediumScreen ? 14 : 12),
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildSocialButton(
-                'assets/images/fb.png',
-                'https://www.facebook.com/sean.nuevo.52',
-                isWideScreen,
-                isMediumScreen,
-              ),
-              SizedBox(width: 16),
-              _buildSocialButton(
-                'assets/images/github.png',
-                'https://github.com/Kristoferseyan',
-                isWideScreen,
-                isMediumScreen,
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+            SizedBox(height: isWideScreen ? 24 : 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: ElevatedButton.icon(
+                    onPressed: () async {
+                      final url = Uri.parse('https://nuevo-resume.tiiny.site');
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url,
+                            mode: LaunchMode.externalApplication);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content: Text('Could not download the resume.')),
+                        );
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(isWideScreen ? 300 : 200, 0),
+                      backgroundColor: AppTheme.cardColorDark,
+                      foregroundColor: AppTheme.primaryColorDark,
+                      elevation: 0,
+                      padding: EdgeInsets.symmetric(
+                        vertical: isWideScreen ? 16 : 14,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    icon: Icon(Icons.file_download_outlined, size: 18),
+                    label: Text(
+                      'Download Resume',
+                      style: AppTheme.buttonText.copyWith(
+                        color: AppTheme.primaryColorDark,
+                        fontSize: isWideScreen ? 16 : 14,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildSocialButton(
+                  'assets/images/fb.png',
+                  'https://www.facebook.com/sean.nuevo.52',
+                  isWideScreen,
+                  isMediumScreen,
+                ),
+                SizedBox(width: 16),
+                _buildSocialButton(
+                  'assets/images/github.png',
+                  'https://github.com/Kristoferseyan',
+                  isWideScreen,
+                  isMediumScreen,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildSocialButton(String iconPath, String url, bool isWideScreen, bool isMediumScreen) {
+  Widget _buildSocialButton(
+      String iconPath, String url, bool isWideScreen, bool isMediumScreen) {
     return InkWell(
       onTap: () async {
         final uri = Uri.parse(url);
@@ -213,16 +251,17 @@ class Content extends StatelessWidget {
           iconPath,
           height: isWideScreen ? 24 : (isMediumScreen ? 20 : 18),
           width: isWideScreen ? 24 : (isMediumScreen ? 20 : 18),
-          color: Colors.white,
         ),
       ),
     );
   }
 
-  Widget _buildRightSection(BuildContext context, bool isWideScreen, bool isMediumScreen, bool isSmallScreen) {
+  Widget _buildRightSection(BuildContext context, bool isWideScreen,
+      bool isMediumScreen, bool isSmallScreen) {
     return Container(
       color: AppTheme.backgroundColorDark,
-      padding: EdgeInsets.fromLTRB(isSmallScreen ? 24.0 : 48.0, 60.0, isSmallScreen ? 24.0 : 48.0, 60.0),
+      padding: EdgeInsets.fromLTRB(
+          isSmallScreen ? 24.0 : 48.0, 40.0, isSmallScreen ? 24.0 : 0.0, 60.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -245,22 +284,45 @@ class Content extends StatelessWidget {
             ),
           ),
           SizedBox(height: isWideScreen ? 48 : 36),
-          
-          _buildSectionHeader('Skills', isWideScreen, isMediumScreen),  
+          _buildSectionHeader('Skills', isWideScreen, isMediumScreen),
           SizedBox(height: isWideScreen ? 24 : 16),
           Wrap(
             spacing: 16.0,
             runSpacing: 16.0,
-            children: const [
-              SkillTooltip(skill: 'Flutter/Dart', description: 'I have extensive experience using Flutter and Dart, which I relied on \nheavily to develop two mobile application projects. These tools have \nbeen essential in building robust and feature-rich cross-platform apps.', icon: Icons.code, color: Colors.blue),
-              SkillTooltip(skill: 'PostgreSQL/Supabase', description: 'As the primary database solution in my projects, I have hands-on experience with Supabase, \nleveraging it for seamless backend integration and database management.', icon: Icons.storage, color: Colors.orange),
-              SkillTooltip(skill: 'Java', description: 'I have foundational knowledge of Java, gained through various school activities and projects, \nfocusing on object-oriented programming and problem-solving.', icon: Icons.computer, color: Colors.redAccent),
-              SkillTooltip(skill: 'Python', description: 'My experience with Python comes primarily from academic tasks, \nwhere I utilized it for scripting, data analysis, and completing assignments effectively.', icon: Icons.language, color: Colors.green),
-              SkillTooltip(skill: 'Figma', description: 'I have strong expertise in Figma, which I used extensively to design intuitive and \npolished layouts for my mobile applications. Creating user-centered designs \nbefore development is a process I particularly enjoy and excel at.', icon: Icons.design_services, color: Colors.purple),
+            children: [
+              SkillTooltip(
+                  skill: 'Flutter/Dart',
+                  description:
+                      'I have extensive experience using Flutter and Dart, which I relied on \nheavily to develop two mobile application projects. These tools have \nbeen essential in building robust and feature-rich cross-platform apps.',
+                  image: Image.asset('assets/icons/flutter.png'),
+                  color: const Color.fromARGB(0, 49, 92, 194)),
+              SkillTooltip(
+                  skill: 'PostgreSQL/Supabase',
+                  description:
+                      'As the primary database solution in my projects, I have hands-on experience with Supabase, \nleveraging it for seamless backend integration and database management.',
+                  image: Image.asset('assets/icons/Supabase.png'),
+                  color: const Color.fromARGB(0, 36, 104, 63)),
+              SkillTooltip(
+                  skill: 'Java',
+                  description:
+                      'I have foundational knowledge of Java, gained through various school activities and projects, \nfocusing on object-oriented programming and problem-solving.',
+                  image: Image.asset('assets/icons/java.png'),
+                  color: const Color.fromARGB(0, 255, 82, 82)),
+              SkillTooltip(
+                  skill: 'Python',
+                  description:
+                      'My experience with Python comes primarily from academic tasks, \nwhere I utilized it for scripting, data analysis, and completing assignments effectively.',
+                  image: Image.asset('assets/icons/python.png'),
+                  color: const Color.fromARGB(0, 167, 175, 76)),
+              SkillTooltip(
+                  skill: 'Figma',
+                  description:
+                      'I have strong expertise in Figma, which I used extensively to design intuitive and \npolished layouts for my mobile applications. Creating user-centered designs \nbefore development is a process I particularly enjoy and excel at.',
+                  image: Image.asset('assets/icons/figma.png'),
+                  color: const Color.fromARGB(0, 155, 39, 176)),
             ],
           ),
           SizedBox(height: isWideScreen ? 48 : 36),
-          
           _buildSectionHeader('Education', isWideScreen, isMediumScreen),
           SizedBox(height: isWideScreen ? 24 : 16),
           Container(
@@ -291,7 +353,6 @@ class Content extends StatelessWidget {
             ),
           ),
           SizedBox(height: isWideScreen ? 48 : 36),
-          
           _buildSectionHeader('Experience', isWideScreen, isMediumScreen),
           SizedBox(height: isWideScreen ? 24 : 16),
           Column(
@@ -323,15 +384,18 @@ class Content extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionHeader(String title, bool isWideScreen, bool isMediumScreen) {
+  Widget _buildSectionHeader(
+      String title, bool isWideScreen, bool isMediumScreen) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
-          style: isWideScreen 
+          style: isWideScreen
               ? AppTheme.headingMediumDark
-              : (isMediumScreen ? AppTheme.headingMediumDark.copyWith(fontSize: 26) : AppTheme.headingSmallDark),
+              : (isMediumScreen
+                  ? AppTheme.headingMediumDark.copyWith(fontSize: 26)
+                  : AppTheme.headingSmallDark),
         ),
         SizedBox(height: 8),
         Container(
@@ -346,7 +410,8 @@ class Content extends StatelessWidget {
     );
   }
 
-  Widget _buildEducationItem(String title, String school, String period, bool isWideScreen, bool isMediumScreen) {
+  Widget _buildEducationItem(String title, String school, String period,
+      bool isWideScreen, bool isMediumScreen) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -413,8 +478,13 @@ class Content extends StatelessWidget {
   }
 
   Widget _buildExperienceItem(
-      String title, String date, String description, String imagePath, BuildContext context, 
-      bool isWideScreen, bool isMediumScreen) {
+      String title,
+      String date,
+      String description,
+      String imagePath,
+      BuildContext context,
+      bool isWideScreen,
+      bool isMediumScreen) {
     return Container(
       decoration: BoxDecoration(
         color: AppTheme.cardColorDark,
@@ -458,7 +528,8 @@ class Content extends StatelessWidget {
                     ),
                     SizedBox(height: 6),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
                         color: AppTheme.primaryColorDark.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(20),

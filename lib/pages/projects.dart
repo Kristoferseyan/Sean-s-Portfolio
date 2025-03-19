@@ -14,60 +14,62 @@ class ProjectsPage extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) {
           bool isMobile = constraints.maxWidth < 800;
-          return Wrap(
-            spacing: 16,
-            runSpacing: 16,
-            alignment: WrapAlignment.center,
-            children: [
-              _buildProjectCard(
-                context,
-                title: 'eMotion: Kinesthetic Analysis System',
-                technologies: [
-                  {'name': 'Flutter/Dart', 'color': Colors.blue},
-                  {'name': 'Supabase', 'color': Colors.orange},
-                ],
-                description:
-                    'Mobile application designed to detect and analyze emotions through body movements.',
-                images: [
-                  'assets/images/tracking.jpg',
-                  'assets/images/analytics.jpg',
-                ],
-                githubLink: 'https://github.com/Kristoferseyan/eMotion.git',
-                isMobile: isMobile,
-              ),
-              _buildProjectCard(
-                context,
-                title: 'Tascadia',
-                technologies: [
-                  {'name': 'Flutter/Dart', 'color': Colors.blue},
-                  {'name': 'Supabase', 'color': Colors.orange},
-                ],
-                description:
-                    'TasCadia is a mobile app that connects busy people who need help with tasks like errands, cleaning, or deliveries to individuals looking for flexible side jobs.',
-                images: [
-                  'assets/images/tascadia-dash.jpg',
-                  'assets/images/tascadia-login.jpg',
-                ],
-                githubLink: 'https://github.com/Kristoferseyan/Tascadia.git',
-                isMobile: isMobile,
-              ),
-              _buildProjectCard(
-                context,
-                title: 'Oro Computer Center Management System',
-                technologies: [
-                  {'name': 'Flutter/Dart', 'color': Colors.blue},
-                  {'name': 'Supabase', 'color': Colors.orange},
-                ],
-                description:
-                    'Desktop application that will serve as a management system for Oro Computer Center.',
-                images: [
-                  'assets/images/oro_home.png',
-                  'assets/images/oro_items.png',
-                ],
-                githubLink: 'https://github.com/Kristoferseyan/oro-computer-system',
-                isMobile: isMobile,
-              ),
-            ],
+          return Center(
+            child: Wrap(
+              spacing: 16,
+              runSpacing: 16,
+              alignment: WrapAlignment.center,
+              children: [
+                _buildProjectCard(
+                  context,
+                  title: 'eMotion: Kinesthetic Analysis System',
+                  technologies: [
+                    {'name': 'Flutter/Dart', 'color': Colors.blue},
+                    {'name': 'Supabase', 'color': Colors.orange},
+                  ],
+                  description:
+                      'Mobile application designed to detect and analyze emotions through body movements.',
+                  images: [
+                    'assets/images/tracking.jpg',
+                    'assets/images/analytics.jpg',
+                  ],
+                  githubLink: 'https://github.com/Kristoferseyan/eMotion.git',
+                  isMobile: isMobile,
+                ),
+                _buildProjectCard(
+                  context,
+                  title: 'Tascadia',
+                  technologies: [
+                    {'name': 'Flutter/Dart', 'color': Colors.blue},
+                    {'name': 'Supabase', 'color': Colors.orange},
+                  ],
+                  description:
+                      'TasCadia is a mobile app that connects busy people who need help with tasks like errands, cleaning, or deliveries to individuals looking for flexible side jobs.',
+                  images: [
+                    'assets/images/tascadia-dash.jpg',
+                    'assets/images/tascadia-login.jpg',
+                  ],
+                  githubLink: 'https://github.com/Kristoferseyan/Tascadia.git',
+                  isMobile: isMobile,
+                ),
+                _buildProjectCard(
+                  context,
+                  title: 'Oro Computer Center Management System',
+                  technologies: [
+                    {'name': 'Flutter/Dart', 'color': Colors.blue},
+                    {'name': 'Supabase', 'color': Colors.orange},
+                  ],
+                  description:
+                      'Desktop application that will serve as a management system for Oro Computer Center.',
+                  images: [
+                    'assets/images/oro_home.png',
+                    'assets/images/oro_items.png',
+                  ],
+                  githubLink: 'https://github.com/Kristoferseyan/oro-computer-system',
+                  isMobile: isMobile,
+                ),
+              ],
+            ),
           );
         },
       ),

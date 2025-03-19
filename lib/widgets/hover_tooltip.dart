@@ -1,17 +1,18 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/styles/theme.dart';
 
 class SkillTooltip extends StatelessWidget {
   final String skill;
   final String description;
-  final IconData icon;
+  final Image image;
   final Color color;
 
   const SkillTooltip({super.key, 
     required this.skill,
     required this.description,
-    required this.icon,
+    required this.image,
     required this.color,
   });
 
@@ -21,7 +22,7 @@ class SkillTooltip extends StatelessWidget {
       message: description,
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
-        color: color, 
+        color: AppTheme.cardColorDark, 
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
@@ -39,10 +40,7 @@ class SkillTooltip extends StatelessWidget {
       child: Chip(
         avatar: CircleAvatar(
           backgroundColor: color,
-          child: Icon(
-            icon,
-            color: Colors.white,
-          ),
+          child: Image(image: image.image),
         ),
         label: Text(
           skill,
