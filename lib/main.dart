@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/contact.dart';
+
 import 'widgets/navigation.dart';
-import 'pages/content.dart';
+import 'pages/content-widgets/content.dart';
 import 'styles/theme.dart';
 import 'pages/projects.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,17 +17,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sean\'s Portfolio',
       darkTheme: AppTheme.darkTheme,
-      initialRoute: '/', 
+      initialRoute: '/',
       routes: {
-        '/': (context) => const WebsiteLayout(child: Content()), 
+        '/': (context) => const WebsiteLayout(child: Content()),
         '/projects': (context) => const WebsiteLayout(child: ProjectsPage()),
-        '/contact': (context) => const WebsiteLayout(child: ContactPage(),), 
       },
       debugShowCheckedModeBanner: false,
     );
   }
 }
-
 
 class WebsiteLayout extends StatelessWidget {
   final Widget child;
@@ -40,7 +39,7 @@ class WebsiteLayout extends StatelessWidget {
       body: Column(
         children: [
           const Navigation(),
-          Expanded(child: child), 
+          Expanded(child: child),
         ],
       ),
     );

@@ -37,21 +37,13 @@ class _NavigationState extends State<Navigation> with SingleTickerProviderStateM
     ];
 
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         decoration: BoxDecoration(
           color: AppTheme.surfaceColorDark,
           borderRadius: BorderRadius.circular(28.0),
           border: Border.all(color: Colors.white.withOpacity(0.06), width: 1),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              blurRadius: 20.0,
-              spreadRadius: 2.0,
-              offset: const Offset(0, 10),
-            ),
-          ],
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

@@ -1,6 +1,6 @@
 name: portfolio
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -14,6 +14,7 @@ dependencies:
   flutter_animate: ^4.5.2
   animate_do: ^3.3.4
   google_fonts: ^6.2.1
+  font_awesome_flutter: ^10.8.0
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +38,9 @@ flutter:
     - assets/images/favicon-32x32.png
     - assets/images/oro_home.png
     - assets/images/oro_items.png
+    - assets/images/landingpage.png
+    - assets/images/employee_menu_page.png
+    - assets/images/employee_order_page.png
 
     - assets/icons/figma.png
     - assets/icons/flutter.png
@@ -54,7 +58,3 @@ flutter:
     - assets/icons/vscode.png
     - assets/icons/sql.png
     - assets/icons/docker.png
-
-    
-
-
